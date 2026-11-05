@@ -80,11 +80,11 @@ jobs:
           REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: |
           if [ "$REPOSITORY_NAME" = "$REPOSITORY_OWNER.github.io" ]; then
-            echo "NEXT_PUBLIC_BASE_PATH=" >> "$GITHUB_ENV"
-            echo "NEXT_PUBLIC_SITE_URL=https://$REPOSITORY_OWNER.github.io" >> "$GITHUB_ENV"
+            export NEXT_PUBLIC_BASE_PATH=""
+            export NEXT_PUBLIC_SITE_URL="https://$REPOSITORY_OWNER.github.io"
           else
-            echo "NEXT_PUBLIC_BASE_PATH=/$REPOSITORY_NAME" >> "$GITHUB_ENV"
-            echo "NEXT_PUBLIC_SITE_URL=https://$REPOSITORY_OWNER.github.io/$REPOSITORY_NAME" >> "$GITHUB_ENV"
+            export NEXT_PUBLIC_BASE_PATH="/$REPOSITORY_NAME"
+            export NEXT_PUBLIC_SITE_URL="https://$REPOSITORY_OWNER.github.io/$REPOSITORY_NAME"
           fi
           npm run build
 
