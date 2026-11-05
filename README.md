@@ -1,13 +1,13 @@
 # Noma Market
 
-![CI](https://github.com/hamzehabbass/noma-storefront/actions/workflows/pages.yml/badge.svg)
+![CI](https://github.com/hamzehabbass/performed-optimised-storefront/actions/workflows/pages.yml/badge.svg)
 
 A fast, responsive demo shop for thoughtfully chosen everyday finds. Built with Next.js App Router, TypeScript, Tailwind CSS, Zustand and the `hamzehabbass-accessible-ui` component library.
 
 > **Demo store only. No real orders or payments.** Checkout does not ask for card details. Cart, wishlist and the last demo order are saved only in the current browser.
 
-**Repository:** `hamzehabbass/noma-storefront` (intended repository name; create/push this project to enable CI and deployment).  
-**Live site:** not deployed yet. GitHub Pages deployment is configured in the Actions workflow.
+**Repository:** [hamzehabbass/performed-optimised-storefront](https://github.com/hamzehabbass/performed-optimised-storefront).  
+**Live site:** https://hamzehabbass.github.io/performed-optimised-storefront/ (GitHub Pages deployment is pending the first successful Actions run).
 
 ## What’s here
 
@@ -21,7 +21,7 @@ A fast, responsive demo shop for thoughtfully chosen everyday finds. Built with 
 
 ## Screenshots
 
-Captured from the optimized local production export; live deployment is still pending.
+Captured from the optimized local production export. Replace these with fresh captures after checking the deployed site.
 
 | Desktop home | Mobile home (375px) |
 | --- | --- |
@@ -96,9 +96,9 @@ Push this repository to the `main` branch and allow GitHub Actions to publish Pa
 
 For a differently named repository, the workflow uses that repository’s name automatically. Set the repository description, topics (for example `nextjs`, `typescript`, `ecommerce`, `accessibility`, `performance`, `zustand`, `github-pages`) and profile pin in GitHub after creating it.
 
-## Honest next steps
+## Remaining release checks
 
-- Create the GitHub repository, push `main`, enable GitHub Pages via Actions, then record the actual live URL.
+- Confirm the GitHub Actions build and Pages deployment succeed.
 - Re-capture the screenshots from the deployed site.
 - Measure Lighthouse and PageSpeed Insights on the deployed URL; replace the unmeasured entries above with repeatable results.
 - Test with a screen reader and a real phone; automated axe is not a substitute for either.
