@@ -1,0 +1,56 @@
+{
+  "name": "noma-storefront",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A fast, accessible demo storefront powered by a real DummyJSON product snapshot.",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "preview": "node scripts/preview.mjs",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "data:update": "tsx scripts/update-data.ts"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "hamzehabbass-accessible-ui": "^0.1.1",
+    "lucide-react": "^0.468.0",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-hook-form": "^7.62.0",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "1.64.1",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.5",
+    "jsdom": "^26.1.0",
+    "playwright-core": "1.64.1",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^5.1.0"
+  },
+  "overrides": {
+    "playwright-core": "1.64.1"
+  }
+}
