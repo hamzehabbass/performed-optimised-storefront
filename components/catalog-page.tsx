@@ -14,6 +14,53 @@ import Link from "next/link";
 
 const PAGE_SIZE = 24;
 
+function CatalogFallback() {
+  return (
+    <div className="page-container py-8 sm:py-12" aria-busy="true">
+      <p className="sr-only" role="status">Loading products…</p>
+      <nav aria-hidden="true" className="mb-5 h-4">
+        <div className="h-3 w-24 rounded bg-soft" />
+      </nav>
+      <div aria-hidden="true" className="flex flex-col justify-between gap-5 border-b border-line pb-7 sm:flex-row sm:items-end">
+        <div className="w-full max-w-xl">
+          <div className="h-3 w-40 rounded bg-soft" />
+          <div className="mt-3 h-10 w-72 max-w-full rounded bg-soft" />
+          <div className="mt-3 h-4 w-full max-w-md rounded bg-soft" />
+        </div>
+        <div className="h-11 w-full rounded-full bg-soft sm:max-w-[300px]" />
+      </div>
+      <div aria-hidden="true" className="mt-7 grid gap-8 md:grid-cols-[210px_1fr] lg:grid-cols-[230px_1fr]">
+        <aside className="hidden md:block">
+          <div className="h-96 rounded-xl bg-soft" />
+        </aside>
+        <section>
+          <div className="mb-5 flex h-10 items-center justify-between">
+            <div className="h-4 w-28 rounded bg-soft" />
+            <div className="h-10 w-24 rounded-full bg-soft md:hidden" />
+          </div>
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 sm:gap-y-10 lg:grid-cols-3 xl:grid-cols-4">
+            {Array.from({ length: PAGE_SIZE }, (_, index) => (
+              <article key={index} className="min-w-0">
+                <div className="product-card-image animate-pulse" />
+                <div className="pt-3">
+                  <div className="mb-1 flex items-start justify-between gap-2">
+                    <div className="w-2/3">
+                      <div className="mb-1 h-3 w-3/4 rounded bg-soft" />
+                      <div className="h-4 w-full rounded bg-soft" />
+                    </div>
+                    <div className="h-3 w-8 rounded bg-soft" />
+                  </div>
+                  <div className="mt-2 h-4 w-16 rounded bg-soft" />
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
 function CatalogContent() {
   const router = useRouter();
   const pathname = usePathname();
@@ -184,7 +231,7 @@ function CatalogContent() {
 
 export function CatalogPage() {
   return (
-    <Suspense fallback={<div className="page-container min-h-[50vh] py-12">Loading the shop…</div>}>
+    <Suspense fallback={<CatalogFallback />}>
       <CatalogContent />
     </Suspense>
   );
