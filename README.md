@@ -7,7 +7,7 @@ A fast, responsive demo shop for thoughtfully chosen everyday finds. Built with 
 > **Demo store only. No real orders or payments.** Checkout does not ask for card details. Cart, wishlist and the last demo order are saved only in the current browser.
 
 **Repository:** [hamzehabbass/performed-optimised-storefront](https://github.com/hamzehabbass/performed-optimised-storefront).  
-**Live site:** https://hamzehabbass.github.io/performed-optimised-storefront/ (GitHub Pages deployment is pending the first successful Actions run).
+**Live site:** [hamzehabbass.github.io/performed-optimised-storefront](https://hamzehabbass.github.io/performed-optimised-storefront/). GitHub Actions builds and deploys `main`, then runs the live smoke test.
 
 ## What’s here
 
@@ -21,7 +21,7 @@ A fast, responsive demo shop for thoughtfully chosen everyday finds. Built with 
 
 ## Screenshots
 
-Captured from the optimized local production export. Replace these with fresh captures after checking the deployed site.
+Captured from the deployed site on 2026-11-05.
 
 | Desktop home | Mobile home (375px) |
 | --- | --- |
@@ -35,20 +35,22 @@ Captured from the optimized local production export. Replace these with fresh ca
 
 ## Performance and accessibility
 
-No Lighthouse result is claimed yet: the site has not been deployed or measured. Record three runs for mobile and desktop on the deployed home, catalogue and product pages, then report the median below.
+Lighthouse CLI 12.8.2 was run three times per page and device against the deployed Pages URL on 2026-11-05. Scores and lab metrics below are the median of those runs. LCP and TBT are lab measurements; Lighthouse does not provide field INP.
 
 The production build generates 204 static routes. The local export is 24 MB on disk, including HTML, route data and assets; emitted JavaScript chunks total 1.0 MB before transfer compression. These build sizes are not Lighthouse or network-transfer measurements.
 
-| Page | Device | Performance | Accessibility | LCP | CLS | INP / TBT |
+| Page | Device | Performance | Accessibility | LCP | CLS | TBT |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Home | Mobile | Not measured | Not measured | Not measured | Not measured | Not measured |
-| Home | Desktop | Not measured | Not measured | Not measured | Not measured | Not measured |
-| Catalogue | Mobile | Not measured | Not measured | Not measured | Not measured | Not measured |
-| Product | Mobile | Not measured | Not measured | Not measured | Not measured | Not measured |
+| Home | Mobile | 99 | 100 | 1.95 s | 0.000 | 2 ms |
+| Home | Desktop | 100 | 100 | 0.46 s | 0.000 | 0 ms |
+| Catalogue | Mobile | 95 | 100 | 2.85 s | 0.000 | 7 ms |
+| Catalogue | Desktop | 100 | 100 | 0.68 s | 0.000 | 0 ms |
+| Product | Mobile | 96 | 100 | 2.80 s | 0.000 | 3 ms |
+| Product | Desktop | 100 | 100 | 0.58 s | 0.000 | 0 ms |
 
 The export uses `next/image` with `unoptimized: true`, because GitHub Pages has no Next.js image-optimisation server. Images include intrinsic layout sizing, responsive `sizes`, lazy loading below the fold and priority hints for the hero and product lead image. The Inter font is self-hosted by `next/font` at build time.
 
-The current suite has 18 unit/component tests and 15 Playwright scenarios. Automated axe checks cover the home, catalogue, product, cart (including its drawer) and checkout pages in light and dark themes. The post-deploy smoke test is configured but cannot be run until Pages is live. These checks complement — they do not replace — manual keyboard, screen-reader and real-phone testing.
+The current suite has 18 unit/component tests and 15 Playwright scenarios. Automated axe checks cover the home, catalogue, product, cart (including its drawer) and checkout pages in light and dark themes. The post-deploy smoke test passed against the live Pages site. These checks complement — they do not replace — manual keyboard, screen-reader and real-phone testing.
 
 ## Data and architecture
 
@@ -98,7 +100,6 @@ For a differently named repository, the workflow uses that repository’s name a
 
 ## Remaining release checks
 
-- Confirm the GitHub Actions build and Pages deployment succeed.
-- Re-capture the screenshots from the deployed site.
-- Measure Lighthouse and PageSpeed Insights on the deployed URL; replace the unmeasured entries above with repeatable results.
 - Test with a screen reader and a real phone; automated axe is not a substitute for either.
+- Add the repository description, topics and website in GitHub’s About panel.
+- PageSpeed Insights API requests were rate-limited during this run; the Lighthouse CLI measurements above are from the deployed URL.
