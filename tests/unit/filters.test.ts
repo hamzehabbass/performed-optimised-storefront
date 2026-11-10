@@ -55,4 +55,20 @@ describe("catalogue filters", () => {
       .toBeLessThanOrEqual(ascending.at(-1)!.price * (1 - ascending.at(-1)!.discountPercentage / 100));
     expect(descendingRating[0]!.rating).toBeGreaterThanOrEqual(descendingRating.at(-1)!.rating);
   });
+
+  it("sorts the biggest discounts first", () => {
+    const discountRanked = filterProducts(products, {
+      query: "",
+      category: "",
+      minPrice: null,
+      maxPrice: null,
+      minRating: 0,
+      inStock: false,
+      sort: "discount-desc",
+    });
+
+    expect(discountRanked[0]!.discountPercentage).toBeGreaterThanOrEqual(
+      discountRanked.at(-1)!.discountPercentage,
+    );
+  });
 });

@@ -50,7 +50,7 @@ The production build generates 204 static routes. The local export is 24 MB on d
 
 The export uses `next/image` with `unoptimized: true`, because GitHub Pages has no Next.js image-optimisation server. Images include intrinsic layout sizing, responsive `sizes`, lazy loading below the fold and priority hints for the hero and product lead image. The Inter font is self-hosted by `next/font` at build time.
 
-The current suite has 18 unit/component tests and 15 Playwright scenarios. Automated axe checks cover the home, catalogue, product, cart (including its drawer) and checkout pages in light and dark themes. The post-deploy smoke test passed against the live Pages site. These checks complement — they do not replace — manual keyboard, screen-reader and real-phone testing.
+The current suite has 19 unit/component tests and 15 Playwright scenarios. Automated axe checks cover the home, catalogue, product, cart (including its drawer) and checkout pages in light and dark themes. The post-deploy smoke test passed against the live Pages site. These checks complement — they do not replace — manual keyboard, screen-reader and real-phone testing.
 
 ## Data and architecture
 
@@ -101,5 +101,5 @@ For a differently named repository, the workflow uses that repository’s name a
 ## Remaining release checks
 
 - Test with a screen reader and a real phone; automated axe is not a substitute for either.
-- Add the repository description, topics and website in GitHub’s About panel.
+- The repository description, website and profile pin are set; add relevant repository topics in GitHub’s About panel.
 - PageSpeed Insights API requests were rate-limited during this run; the Lighthouse CLI measurements above are from the deployed URL.

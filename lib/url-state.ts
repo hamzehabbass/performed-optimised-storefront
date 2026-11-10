@@ -4,7 +4,14 @@ import {
   type SortOption,
 } from "@/lib/filters";
 
-const sortOptions: SortOption[] = ["featured", "price-asc", "price-desc", "rating", "title"];
+const sortOptions: SortOption[] = [
+  "featured",
+  "price-asc",
+  "price-desc",
+  "rating",
+  "discount-desc",
+  "title",
+];
 
 function parseBoundedNumber(value: string | null, min: number, max: number): number | null {
   if (!value || value.trim() === "") return null;

@@ -10,7 +10,7 @@ describe("catalogue URL state", () => {
       maxPrice: 900,
       minRating: 4,
       inStock: true,
-      sort: "price-asc" as const,
+      sort: "discount-desc" as const,
     };
     const query = serializeProductFilters(filters, 2);
 

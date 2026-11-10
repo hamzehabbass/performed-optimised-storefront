@@ -103,6 +103,7 @@ export function FilterControls({ filters, idPrefix, onChange }: FilterControlsPr
         >
           <option value="featured">Featured</option>
           <option value="rating">Top rated</option>
+          <option value="discount-desc">Biggest discount</option>
           <option value="price-asc">Price: low to high</option>
           <option value="price-desc">Price: high to low</option>
           <option value="title">Name: A to Z</option>

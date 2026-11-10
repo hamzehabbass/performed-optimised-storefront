@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Heart, ShoppingBag, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { Price } from "@/components/price";
+import { formatCategory } from "@/lib/format";
 import { useCartStore } from "@/stores/cart-store";
 import { useWishlistStore } from "@/stores/wishlist-store";
 import { useStoreHydration } from "@/lib/use-store-hydration";
@@ -41,7 +42,7 @@ export function WishlistPage() {
                 <Image src={product.thumbnail} alt="" fill sizes="112px" className="object-contain p-2" />
               </Link>
               <div className="min-w-0 flex-1">
-                <p className="text-xs text-muted">{product.brand || product.category}</p>
+                <p className="text-xs text-muted">{product.brand || formatCategory(product.category)}</p>
                 <Link
                   href={`/products/${product.id}/`}
                   className="mt-1 inline-block font-medium hover:underline"

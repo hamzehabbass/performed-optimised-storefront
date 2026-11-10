@@ -14,7 +14,7 @@ export function HomePage() {
     .sort((a, b) => b.rating - a.rating || a.id - b.id)
     .slice(0, 4);
   const bestDeals = [...products]
-    .sort((a, b) => b.discountPercentage - a.discountPercentage)
+    .sort((a, b) => b.discountPercentage - a.discountPercentage || a.id - b.id)
     .slice(0, 4);
 
   return (
@@ -116,7 +116,7 @@ export function HomePage() {
             <p className="eyebrow">A little lovely for less</p>
             <h2 className="section-title mt-2">Good things on offer</h2>
           </div>
-          <Link href="/products/?sort=price-asc" className="text-link">
+          <Link href="/products/?sort=discount-desc" className="text-link">
             Shop all deals <ArrowUpRight size={15} aria-hidden="true" />
           </Link>
         </div>

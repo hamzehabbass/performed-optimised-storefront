@@ -1,7 +1,13 @@
 import type { ProductSummary } from "@/lib/types";
 import { discountedPrice } from "@/lib/pricing";
 
-export type SortOption = "featured" | "price-asc" | "price-desc" | "rating" | "title";
+export type SortOption =
+  | "featured"
+  | "price-asc"
+  | "price-desc"
+  | "rating"
+  | "discount-desc"
+  | "title";
 
 export type ProductFilters = {
   query: string;
@@ -52,6 +58,10 @@ export function filterProducts(
       return filtered.sort((a, b) => discountedPriceForSort(b) - discountedPriceForSort(a));
     case "rating":
       return filtered.sort((a, b) => b.rating - a.rating);
+    case "discount-desc":
+      return filtered.sort(
+        (a, b) => b.discountPercentage - a.discountPercentage || a.id - b.id,
+      );
     case "title":
       return filtered.sort((a, b) => a.title.localeCompare(b.title));
     default:

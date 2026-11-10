@@ -6,6 +6,7 @@ import { ArrowUpRight, Heart, ShoppingBag, Star } from "lucide-react";
 import { useCartStore } from "@/stores/cart-store";
 import { useWishlistStore } from "@/stores/wishlist-store";
 import type { ProductSummary } from "@/lib/types";
+import { formatCategory } from "@/lib/format";
 import { Price } from "@/components/price";
 
 type ProductCardProps = {
@@ -64,7 +65,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="mb-1 flex items-start justify-between gap-2">
           <div className="min-w-0">
             <p className="mb-1 text-[10px] font-medium uppercase tracking-[.14em] text-muted">
-              {product.brand || product.category.replaceAll("-", " ")}
+              {product.brand || formatCategory(product.category)}
             </p>
             <Link
               href={`/products/${product.id}/`}

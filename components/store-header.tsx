@@ -51,8 +51,8 @@ export function StoreHeader() {
           </Link>
           <nav aria-label="Main navigation" className="hidden items-center gap-8 md:flex">
             <Link className="nav-link" href="/products/">Shop all</Link>
-            <Link className="nav-link" href="/products/?sort=rating">Best sellers</Link>
-            <Link className="nav-link" href="/products/?sort=price-asc">Under $50</Link>
+            <Link className="nav-link" href="/products/?sort=rating">Top rated</Link>
+            <Link className="nav-link" href="/products/?max=50">Under $50</Link>
             <Link className="nav-link" href="/about/">Our story</Link>
           </nav>
           <div className="flex shrink-0 items-center gap-1">
@@ -87,8 +87,8 @@ export function StoreHeader() {
         <div className="border-t border-line md:hidden">
           <nav aria-label="Mobile navigation" className="page-container flex h-11 items-center gap-6 overflow-x-auto">
             <Link className="nav-link shrink-0" href="/products/">Shop all</Link>
-            <Link className="nav-link shrink-0" href="/products/?sort=rating">Best sellers</Link>
-            <Link className="nav-link shrink-0" href="/products/?sort=price-asc">Under $50</Link>
+            <Link className="nav-link shrink-0" href="/products/?sort=rating">Top rated</Link>
+            <Link className="nav-link shrink-0" href="/products/?max=50">Under $50</Link>
             <Link className="nav-link shrink-0" href="/about/">Our story</Link>
           </nav>
         </div>

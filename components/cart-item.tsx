@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useCartStore } from "@/stores/cart-store";
-import { formatPrice } from "@/lib/format";
+import { formatCategory, formatPrice } from "@/lib/format";
 import { discountedPrice } from "@/lib/pricing";
 import type { CartItem as CartLine } from "@/lib/types";
 
@@ -37,7 +37,7 @@ export function CartItem({ item }: CartItemProps) {
           <div className="min-w-0">
             <p className="truncate text-sm font-medium">{product.title}</p>
             <p className="mt-1 text-xs text-muted">
-              {product.brand || product.category.replaceAll("-", " ")}
+              {product.brand || formatCategory(product.category)}
             </p>
           </div>
           <p className="shrink-0 text-sm font-medium">
